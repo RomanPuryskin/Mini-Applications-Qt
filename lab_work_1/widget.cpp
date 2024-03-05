@@ -33,9 +33,9 @@ Widget::Widget(QWidget *parent):QWidget(parent)
 
     begin();
 
-    connect(exitButton,SIGNAL(clicked(bool)),this,SLOT(close()));
-    connect(nextButton,SIGNAL(clicked(bool)),this,SLOT(begin()));
-    connect(inputEdit,SIGNAL(returnPressed()),this,SLOT(calc()));
+    connect(exitButton,&QPushButton::clicked,this,&Widget::close);
+    connect(nextButton,&QPushButton::clicked,this,&Widget::begin);
+    connect(inputEdit,&QLineEdit::returnPressed,this,&Widget::calc);
 }
 
 void Widget::begin()
