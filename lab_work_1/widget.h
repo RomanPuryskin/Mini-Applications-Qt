@@ -7,6 +7,10 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QApplication>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QMessageBox>
+#include <QValidator>
 class Widget : public QWidget
 {
     Q_OBJECT // макрос Qt, обеспечивающий корректное создание сигналов и слотов
@@ -20,7 +24,6 @@ protected:
     QPushButton *exitButton; // кнопка Выход
 public:
     Widget(QWidget *parent = nullptr);
-    ~Widget();
 public slots:
     void begin();
     void calc();
