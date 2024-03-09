@@ -11,31 +11,31 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QValidator>
-class Widget : public QWidget
+#include <math.h>
+class Widget : public QWidget  // наследуемся от базового класса
 {
     Q_OBJECT // макрос Qt, обеспечивающий корректное создание сигналов и слотов
 protected:
-    QFrame *frame; // рамка
-    QLabel *inputLabel; // метка ввода
-    QLineEdit *inputEdit; // строчный редактор ввода
-    QLabel *outputLabel; // метка вывода
-    QLineEdit *outputEdit; // строчный редактор вывода
+    QFrame *frame; // рамка, в которой будут находиться editLine's
+    QLineEdit *inputEdit; // поле ввода
+    QLabel *outputLabel; // лейбл с текстом вывода
+    QLineEdit *outputEdit; // поле вывода
     QPushButton *nextButton; // кнопка Следующее
     QPushButton *exitButton; // кнопка Выход
 public:
-    Widget(QWidget *parent = nullptr);
+    Widget(QWidget *parent = nullptr); // Наш класс widget не имеет родителей, он сам является родителем для будущих виджетов
 public slots:
     void begin();
     void calc();
 };
 
-class StrValidator:public QValidator // класс компонента проверки ввода
+class StrValidator:public QValidator // наследуемся от класса валидатора, для проверки корректности данных
 {
 public:
-    StrValidator(QObject *parent):QValidator(parent){}
-    virtual State validate(QString &str,int &pos)const
+    StrValidator(QObject *parent):QValidator(parent){}  //Qвалидатор принимает объект класса Qobject (в нашем случае lineEdit)
+    virtual State validate(QString &str,int &pos)const // при завершении ввода метод вызывается автоматически
     {
-        return Acceptable; // метод всегда принимает вводимую строку
+        return Acceptable;
     }
 };
 #endif // WIDGET_H
