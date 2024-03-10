@@ -9,14 +9,14 @@ Widget::Widget(QWidget *parent):QWidget(parent)
     frame->setFrameShadow(QFrame::Raised);
     frame->setFrameShape(QFrame::Panel);
 
-    inputEdit = new QLineEdit;
+    inputEdit = new QLineEdit(this);
     inputEdit->setPlaceholderText("Enter a number:");
-    StrValidator *v=new StrValidator(inputEdit);
+    StrValidator *v=new StrValidator(inputEdit); //определяем родителя StrValidate - inputEdit
     inputEdit->setValidator(v); // привязываем наш валидатор к полю ввода числа
-    outputLabel = new QLabel("Result:");
-    outputEdit = new QLineEdit;
-    nextButton = new QPushButton("Next");
-    exitButton = new QPushButton("Exit");
+    outputLabel = new QLabel("Result:",this);
+    outputEdit = new QLineEdit(this);
+    nextButton = new QPushButton("Next",this);
+    exitButton = new QPushButton("Exit",this);
 
     // компоновка лэйблов и полей ввода
     QVBoxLayout *vLayout1 = new QVBoxLayout(frame);// автоматическое выравнивание по вертикале лэйблов и полей ввода в рамке

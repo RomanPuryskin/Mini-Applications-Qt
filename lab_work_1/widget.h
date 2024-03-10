@@ -29,11 +29,13 @@ public slots:
     void calc();
 };
 
-class StrValidator:public QValidator // наследуемся от класса валидатора, для проверки корректности данных
+class StrValidator:public QValidator // наследуемся от класса валидатора, для проверки корректности данных(функция validate может быть использована
+//только у наследуемого класса)
 {
 public:
-    StrValidator(QObject *parent):QValidator(parent){}  //Qвалидатор принимает объект класса Qobject (в нашем случае lineEdit)
-    virtual State validate(QString &str,int &pos)const // при завершении ввода метод вызывается автоматически
+    StrValidator(QObject *parent):QValidator(parent){}  //указываем родителя, который будет потом удалять этот объект
+    virtual State validate(QString &str,int &pos)const // виртуальная функция у класса QValidate (state- тип возвращаемого значения),
+        //чтобы воспользоваться validate - ее нужно определить у наследуемого класса
     {
         return Acceptable;
     }
