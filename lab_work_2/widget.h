@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QLineEdit>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 class Widget : public QWidget
 {
@@ -12,6 +14,7 @@ class Widget : public QWidget
 protected:
     QLabel *label1,*label2;
     QPushButton *calcButton,*exitButton;
+    Counter *edit1,*edit2;
 
 public:
     Widget(QWidget *parent = nullptr);
