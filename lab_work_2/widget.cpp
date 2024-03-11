@@ -12,11 +12,11 @@ Widget::Widget(QWidget *parent): QWidget(parent)
 
     QHBoxLayout *layout1 = new QHBoxLayout();
     layout1->addWidget(label1);
-    layout2->addWidget(label2);
+    layout1->addWidget(label2);
 
     QHBoxLayout *layout2 = new QHBoxLayout();
     layout2->addWidget(edit1);
-    layout2->addWidget(edit1);
+    layout2->addWidget(edit2);
 
     QHBoxLayout *layout3 = new QHBoxLayout();
     layout3->addWidget(calcButton);
@@ -26,6 +26,10 @@ Widget::Widget(QWidget *parent): QWidget(parent)
     layout4->addLayout(layout1);
     layout4->addLayout(layout2);
     layout4->addLayout(layout3);
+
+    connect(exitButton,&QPushButton::clicked,this,&Counter::close);
+    connect(calcButton,&QPushButton::clicked,edit1,&Counter::add_one);
+    connect(edit1,&Counter::tick_signal,edit2,&Counter::add_one);
 }
 
 Widget::~Widget()
