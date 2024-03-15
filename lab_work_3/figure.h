@@ -1,6 +1,6 @@
 #ifndef FIGURE_H
 #define FIGURE_H
-
+#include <QFrame>
 #include <QPainter>
 
 class Figure
