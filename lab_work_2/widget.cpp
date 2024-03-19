@@ -11,27 +11,24 @@ Widget::Widget(QWidget *parent): QWidget(parent)
     exitButton = new QPushButton("Exit",this);
 
     QHBoxLayout *layout1 = new QHBoxLayout();
-    layout1->addWidget(label1);
-    layout1->addWidget(label2);
-
     QHBoxLayout *layout2 = new QHBoxLayout();
-    layout2->addWidget(edit1);
-    layout2->addWidget(edit2);
-
     QHBoxLayout *layout3 = new QHBoxLayout();
-    layout3->addWidget(calcButton);
-    layout3->addWidget(exitButton);
-
     QVBoxLayout *layout4 = new QVBoxLayout(this);
-    layout4->addLayout(layout1);
-    layout4->addLayout(layout2);
-    layout4->addLayout(layout3);
 
-    if(!label1 ||!label2 || !edit1 || !edit2  || !calcButton || !exitButton || !layout1 || !layout2
-        || !layout3 || !layout4)
+    if(layout1 && layout2 && layout3 && layout4)
     {
-        std::cerr << "Have not enough memory for creating object";
+        layout1->addWidget(label1);
+        layout1->addWidget(label2);
+        layout2->addWidget(edit1);
+        layout2->addWidget(edit2);
+        layout3->addWidget(calcButton);
+        layout3->addWidget(exitButton);
+        layout4->addLayout(layout1);
+        layout4->addLayout(layout2);
+        layout4->addLayout(layout3);
+
     }
+    else
 
     connect(exitButton,&QPushButton::clicked,this,&Counter::close);
     connect(calcButton,&QPushButton::clicked,edit1,&Counter::add_one);
