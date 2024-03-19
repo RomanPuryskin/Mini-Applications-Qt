@@ -8,6 +8,7 @@
 #include <QLineEdit>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QMessageBox>
 class Counter : public QLineEdit
 {
     Q_OBJECT
