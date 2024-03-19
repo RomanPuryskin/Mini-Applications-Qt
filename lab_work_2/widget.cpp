@@ -29,6 +29,13 @@ Widget::Widget(QWidget *parent): QWidget(parent)
 
     }
     else
+    {
+        QMessageBox msgBox(QMessageBox::Information,
+                           ("Счетчик."),
+                           ("Ошибка выделения памяти под объекты."),
+                           QMessageBox::Ok);
+        msgBox.exec();
+    }
 
     connect(exitButton,&QPushButton::clicked,this,&Counter::close);
     connect(calcButton,&QPushButton::clicked,edit1,&Counter::add_one);
