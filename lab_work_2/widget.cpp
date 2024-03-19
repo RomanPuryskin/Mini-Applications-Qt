@@ -4,7 +4,7 @@ Widget::Widget(QWidget *parent): QWidget(parent)
 {
     setWindowTitle("Counter");
     label1 = new QLabel("Counter by 1",this);
-    label2 = new QLabel("Counter by 2",this);
+    label2 = new QLabel("Counter by 5",this);
     edit1 = new Counter("0",this);
     edit2 = new Counter("0",this);
     calcButton = new QPushButton("+1" , this);
@@ -26,6 +26,12 @@ Widget::Widget(QWidget *parent): QWidget(parent)
     layout4->addLayout(layout1);
     layout4->addLayout(layout2);
     layout4->addLayout(layout3);
+
+    if(!label1 ||!label2 || !edit1 || !edit2  || !calcButton || !exitButton || !layout1 || !layout2
+        || !layout3 || !layout4)
+    {
+        std::cerr << "Have not enough memory for creating object";
+    }
 
     connect(exitButton,&QPushButton::clicked,this,&Counter::close);
     connect(calcButton,&QPushButton::clicked,edit1,&Counter::add_one);
