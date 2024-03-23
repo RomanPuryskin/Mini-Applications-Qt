@@ -30,11 +30,7 @@ Widget::Widget(QWidget *parent): QWidget(parent)
     }
     else
     {
-        QMessageBox msgBox(QMessageBox::Information,
-                           ("Счетчик."),
-                           ("Ошибка выделения памяти под объекты."),
-                           QMessageBox::Ok);
-        msgBox.exec();
+        std::cerr<<"Memory allocation error";
     }
 
     connect(exitButton,&QPushButton::clicked,this,&Widget::close);
