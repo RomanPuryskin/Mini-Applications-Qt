@@ -37,7 +37,7 @@ Widget::Widget(QWidget *parent): QWidget(parent)
         msgBox.exec();
     }
 
-    connect(exitButton,&QPushButton::clicked,this,&Counter::close);
+    connect(exitButton,&QPushButton::clicked,this,&Widget::close);
     connect(calcButton,&QPushButton::clicked,edit1,&Counter::add_one);
     connect(edit1,&Counter::tick_signal,edit2,&Counter::add_one);
 }
