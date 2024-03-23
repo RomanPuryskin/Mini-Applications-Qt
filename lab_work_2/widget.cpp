@@ -9,6 +9,10 @@ Widget::Widget(QWidget *parent): QWidget(parent)
     edit2 = new Counter("0",this);
     calcButton = new QPushButton("+1" , this);
     exitButton = new QPushButton("Exit",this);
+    if(!label1 || !label2 || !edit1 || !edit2 || !calcButton || !exitButton)
+    {
+        std::cerr<<"Memory allocation error";
+    }
 
     QHBoxLayout *layout1 = new QHBoxLayout();
     QHBoxLayout *layout2 = new QHBoxLayout();
