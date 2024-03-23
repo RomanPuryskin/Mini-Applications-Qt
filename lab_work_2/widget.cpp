@@ -33,6 +33,8 @@ Widget::Widget(QWidget *parent): QWidget(parent)
         std::cerr<<"Memory allocation error";
     }
 
+    edit1->setEnabled(false);
+    edit2->setEnabled(false);
     connect(exitButton,&QPushButton::clicked,this,&Widget::close);
     connect(calcButton,&QPushButton::clicked,edit1,&Counter::add_one);
     connect(edit1,&Counter::tick_signal,edit2,&Counter::add_one);
