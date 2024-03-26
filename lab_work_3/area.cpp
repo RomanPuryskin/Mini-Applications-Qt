@@ -7,7 +7,7 @@ area::area(QWidget *parent):QWidget(parent)
     alpha = 0;
 }
 
-void area::showEvent(QShowEvent *)
+void area::showEvent(QShowEvent *event)
 {
     myTimer = startTimer(50);
 }

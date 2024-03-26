@@ -1,10 +1,7 @@
 #ifndef AREA_H
 #define AREA_H
+#include <QWidget>
 #include "figure.h"
-#include <QPaintEvent>
-#include <QTimerEvent>
-#include <QShowEvent>
-#include <QHideEvent>
 
 class area : public QWidget
 {
@@ -17,7 +14,7 @@ public:
     float alpha; //угол поворота
 protected:
     void paintEvent(QPaintEvent *event);
-    void timerEvent(QTimerEvent *event);
+    virtual void timerEvent(QTimerEvent *event);
     void showEvent(QShowEvent *event);
     void hideEvent (QHideEvent *event);
 };

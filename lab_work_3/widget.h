@@ -1,16 +1,17 @@
 #ifndef WIDGET_H
 #define WIDGET_H
-
-#include <QWidget>
+#include <QtGui>
+#include <iostream>
+#include "area.h"
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 
 class Widget : public QWidget
 {
-    Q_OBJECT
-
 protected:
     QPushButton *exitButton;
+    area *myarea;
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();

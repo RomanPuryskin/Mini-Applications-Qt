@@ -1,7 +1,7 @@
 #ifndef FIGURE_H
 #define FIGURE_H
-#include <QFrame>
-#include <QPainter>
+#include <QtGui>
+#include <math.h>
 
 class Figure
 {
