@@ -7,7 +7,7 @@ class Figure
 {
 protected:
     int x , y , halflen , dx , dy , r;
-    virtual void draw(QPainter *Painter) = nullptr;
+    virtual void draw(QPainter *Painter) = 0;
 public:
     Figure(int X , int Y, int Halflen): x(X) , y(Y) , halflen(Halflen) {}
     void move(float Alpha, QPainter *Painter);

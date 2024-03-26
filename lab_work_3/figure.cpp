@@ -1,6 +1,5 @@
 #include "figure.h"
 #include <math.h>
-#include <QFrame>
 
 void Figure::move(float Alpha, QPainter *Painter)
 {
