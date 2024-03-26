@@ -9,10 +9,10 @@ area::area(QWidget *parent):QWidget(parent)
 
 void area::showEvent(QShowEvent *event)
 {
-    myTimer = startTimer(50);
+    myTimer = startTimer(50); // метод QObject запускает таймер и возварщает его идентификатор
 }
 
-void area::paintEvent(QPaintEvent *)
+void area::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
     painter.setPen(Qt::red);
@@ -25,14 +25,11 @@ void area::timerEvent(QTimerEvent *event)
     if(event->timerId() == myTimer)
     {
         alpha += 0.2;
-        update();
+        update(); // не перерисовывает заново, а планирует событие рисования
     }
-
-    else
-        QWidget::timerEvent(event);
 }
 
-void area::hideEvent(QHideEvent *)
+void area::hideEvent(QHideEvent *event)
 {
     killTimer(myTimer);
 }
