@@ -6,7 +6,7 @@
 class Figure
 {
 protected:
-    int x , y , halflen , dx , dy , r;
+    int x , y , halflen , dx , dy;
     virtual void draw(QPainter *Painter) = 0; // чисто виртуальная функция делает класс абстрактным
 public:
     Figure(int X , int Y, int Halflen): x(X) , y(Y) , halflen(Halflen) {}
