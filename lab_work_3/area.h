@@ -15,7 +15,7 @@ public:
 protected:
     // события QWidget(кроме timerEvent)
     void paintEvent(QPaintEvent *event); //обработчик события перерисовки, вызывается при создании виджета
-    virtual void timerEvent(QTimerEvent *event); // метод QObject
+    void timerEvent(QTimerEvent *event); // метод QObject
     void showEvent(QShowEvent *event); // событие , непосредственно перед тем как виджет становится видимым
     void hideEvent (QHideEvent *event); //событие скрытия, отправляется виджетам сразу после скрытия
 };
